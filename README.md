@@ -105,7 +105,9 @@ Your task is to create a RESTful quiz application with full of greenfox question
 ### In what cases would you choose to use an abstract class over an interface?
 
 Please define it with your own words. We are expecting at least 3 distinct ideas that you write here:
-
+-When I have a very specific use for the class with strict restrictions and I know that I would not need to implement from more sources.
+-When I need data fields and methods in the parent class
+-When The class implementing the asbtracts class in fundamentally the same as for core properties
 
 ### Analyzing URL
 Please name the parts of the URL below.

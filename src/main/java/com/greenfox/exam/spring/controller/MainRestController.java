@@ -50,11 +50,6 @@ public class MainRestController {
     List<ProjectToDecode> emptyProjects = new ArrayList<>();
     int correctAnswers = 0;
     for (int i = 0; i < 5; i++) {
-      System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
-      System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
-      System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
-      System.out.println(answerDTO.getAnswers().get(i).getAnswer());
-      System.out.println(questionAnswerRepository.findOne(idsToGet[i]).getAnswer());
       if (answerDTO.getAnswers().get(i).getAnswer().equals(questionAnswerRepository.findOne(idsToGet[i]).getAnswer())) {
         correctAnswers += 1;
       }
