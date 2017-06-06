@@ -13,6 +13,8 @@ import java.util.List;
 @RestController
 public class MainRestController {
 
+  int quizId = 0;
+
   @Autowired
   RandomNumService randomNumService;
 
@@ -28,6 +30,7 @@ public class MainRestController {
       questions[i - 1] = questionAnswerRepository.findOne((long)questionsToGet.get(i - 1)).getQuestion();
       ids[i - 1] = questionAnswerRepository.findOne((long)questionsToGet.get(i - 1)).getId();
     }
-    return new QuizQuestions(1, questions, ids);
+    quizId += 1;
+    return new QuizQuestions(quizId, questions, ids);
   }
 }
