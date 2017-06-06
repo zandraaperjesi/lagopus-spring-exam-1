@@ -1,6 +1,8 @@
 package com.greenfox.exam.spring;
 
+import com.greenfox.exam.spring.model.ProjectToDecode;
 import com.greenfox.exam.spring.model.QuestionAnswer;
+import com.greenfox.exam.spring.repository.ProjectRepository;
 import com.greenfox.exam.spring.repository.QuestionAnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,6 +14,9 @@ public class ExamApplication implements CommandLineRunner{
 
   @Autowired
   QuestionAnswerRepository questionAnswerRepository;
+
+  @Autowired
+  ProjectRepository projectRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ExamApplication.class, args);
@@ -27,5 +32,12 @@ public class ExamApplication implements CommandLineRunner{
     questionAnswerRepository.save(new QuestionAnswer("What was the name of the first Green Fox class?", "Vulpes"));
     questionAnswerRepository.save(new QuestionAnswer("How many likes do we have on facebook", "~3300"));
     questionAnswerRepository.save(new QuestionAnswer("What is Tojas's horoscope?", "Libra"));
+
+    projectRepository.save(new ProjectToDecode("Qm9va2luZyBhbmQgUmVzb3VyY2UgQmFja2VuZCBTZXJ2aWNl"));
+    projectRepository.save(new ProjectToDecode("Tm90aWZpY2F0aW9uIEJhY2tlbmQgU2VydmljZQ=="));
+    projectRepository.save(new ProjectToDecode("Q3VycmVuY3kgYW5kIFBheW1lbnQgQmFja2VuZCBTZXJ2aWNl"));
+    projectRepository.save(new ProjectToDecode("TW9uaXRvcmluZyBhbmQgQW5hbHl0aWNzIEJhY2tlbmQgU2VydmljZQ=="));
+    projectRepository.save(new ProjectToDecode("VXNlciBQcm9maWxlIGFuZCBBdXRoZW50aWNhdGlvbiBCYWNrZW5kIFNlcnZpY2U="));
+    projectRepository.save(new ProjectToDecode("SW1hZ2UgcmVzaXplIGFuZCBHZW8gTG9jYXRpb24gQmFja2VuZCBTZXJ2aWNlcw=="));
   }
 }

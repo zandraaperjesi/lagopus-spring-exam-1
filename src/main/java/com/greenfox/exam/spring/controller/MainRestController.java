@@ -1,19 +1,29 @@
 package com.greenfox.exam.spring.controller;
 
-
+import com.greenfox.exam.spring.model.AnswerDTO;
+import com.greenfox.exam.spring.model.ListOfProjects;
+import com.greenfox.exam.spring.model.ProjectToDecode;
 import com.greenfox.exam.spring.model.QuizQuestions;
+import com.greenfox.exam.spring.repository.ProjectRepository;
 import com.greenfox.exam.spring.repository.QuestionAnswerRepository;
 import com.greenfox.exam.spring.service.RandomNumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class MainRestController {
 
   int quizId = 0;
+
+  long idsToGet[] = new long[5];
+
+  @Autowired
+  ProjectRepository projectRepository;
 
   @Autowired
   RandomNumService randomNumService;
@@ -31,6 +41,27 @@ public class MainRestController {
       ids[i - 1] = questionAnswerRepository.findOne((long)questionsToGet.get(i - 1)).getId();
     }
     quizId += 1;
+    idsToGet = ids;
     return new QuizQuestions(quizId, questions, ids);
+  }
+
+  @PostMapping("/answers")
+  public ListOfProjects QuizAnsweres(@RequestBody AnswerDTO answerDTO) {
+    List<ProjectToDecode> emptyProjects = new ArrayList<>();
+    int correctAnswers = 0;
+    for (int i = 0; i < 5; i++) {
+      System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+      System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+      System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+      System.out.println(answerDTO.getAnswers().get(i).getAnswer());
+      System.out.println(questionAnswerRepository.findOne(idsToGet[i]).getAnswer());
+      if (answerDTO.getAnswers().get(i).getAnswer().equals(questionAnswerRepository.findOne(idsToGet[i]).getAnswer())) {
+        correctAnswers += 1;
+      }
+    }
+    if (correctAnswers == 5) {
+      return new ListOfProjects(projectRepository.findAllByOrderById());
+    }
+    return new ListOfProjects(emptyProjects);
   }
 }

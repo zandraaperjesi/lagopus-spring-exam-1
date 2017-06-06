@@ -8,7 +8,6 @@ public class QuizQuestions {
     this.id = id;
     for (int i = 0; i < questions.length; i++) {
       this.questions[i] = new Question(ids[i], questions[i]);
-      System.out.println(questions[i]);
     }
   }
 
