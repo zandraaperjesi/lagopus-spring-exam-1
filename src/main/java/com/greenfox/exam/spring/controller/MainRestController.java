@@ -6,6 +6,7 @@ import com.greenfox.exam.spring.model.ProjectToDecode;
 import com.greenfox.exam.spring.model.QuizQuestions;
 import com.greenfox.exam.spring.repository.ProjectRepository;
 import com.greenfox.exam.spring.repository.QuestionAnswerRepository;
+import com.greenfox.exam.spring.service.GetAnsweres;
 import com.greenfox.exam.spring.service.RandomNumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,9 @@ public class MainRestController {
 
   @Autowired
   QuestionAnswerRepository questionAnswerRepository;
+
+  @Autowired
+  GetAnsweres getAnsweres;
 
   @GetMapping("/questions")
   public QuizQuestions getQuestions() {
@@ -57,6 +61,6 @@ public class MainRestController {
     if (correctAnswers == 5) {
       return new ListOfProjects(projectRepository.findAllByOrderById());
     }
-    return new ListOfProjects(emptyProjects);
+    return getAnsweres.getAnswerlist();
   }
 }
