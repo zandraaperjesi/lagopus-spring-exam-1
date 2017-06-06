@@ -33,11 +33,11 @@ public class ExamApplication implements CommandLineRunner{
     questionAnswerRepository.save(new QuestionAnswer("How many likes do we have on facebook", "~3300"));
     questionAnswerRepository.save(new QuestionAnswer("What is Tojas's horoscope?", "Libra"));
 
-    projectRepository.save(new ProjectToDecode("Qm9va2luZyBhbmQgUmVzb3VyY2UgQmFja2VuZCBTZXJ2aWNl"));
-    projectRepository.save(new ProjectToDecode("Tm90aWZpY2F0aW9uIEJhY2tlbmQgU2VydmljZQ=="));
-    projectRepository.save(new ProjectToDecode("Q3VycmVuY3kgYW5kIFBheW1lbnQgQmFja2VuZCBTZXJ2aWNl"));
-    projectRepository.save(new ProjectToDecode("TW9uaXRvcmluZyBhbmQgQW5hbHl0aWNzIEJhY2tlbmQgU2VydmljZQ=="));
-    projectRepository.save(new ProjectToDecode("VXNlciBQcm9maWxlIGFuZCBBdXRoZW50aWNhdGlvbiBCYWNrZW5kIFNlcnZpY2U="));
-    projectRepository.save(new ProjectToDecode("SW1hZ2UgcmVzaXplIGFuZCBHZW8gTG9jYXRpb24gQmFja2VuZCBTZXJ2aWNlcw=="));
+    projectRepository.save(new ProjectToDecode("Booking and Resource Backend Service"));
+    projectRepository.save(new ProjectToDecode("Notification Backend Service"));
+    projectRepository.save(new ProjectToDecode("Currency and Payment Backend Service"));
+    projectRepository.save(new ProjectToDecode("Monitoring and Analytics Backend Service"));
+    projectRepository.save(new ProjectToDecode("User Profile and Authentication Backend Service"));
+    projectRepository.save(new ProjectToDecode("Image resize and Geo Location Backend Services"));
   }
 }

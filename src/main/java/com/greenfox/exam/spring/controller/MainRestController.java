@@ -20,7 +20,7 @@ public class MainRestController {
 
   int quizId = 0;
 
-  long idsToGet[] = new long[5];
+  long idsToGet[] = {1, 2, 3, 4, 5};
 
   @Autowired
   ProjectRepository projectRepository;
