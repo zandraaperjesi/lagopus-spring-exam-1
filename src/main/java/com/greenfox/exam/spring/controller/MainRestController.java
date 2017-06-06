@@ -59,7 +59,7 @@ public class MainRestController {
       }
     }
     if (correctAnswers == 5) {
-      return new ListOfProjects(projectRepository.findAllByOrderById());
+      return new ListOfProjects(emptyProjects);
     }
     return getAnsweres.getAnswerlist();
   }
