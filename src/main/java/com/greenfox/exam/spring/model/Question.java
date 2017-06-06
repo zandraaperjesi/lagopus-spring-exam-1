@@ -1,10 +1,10 @@
 package com.greenfox.exam.spring.model;
 
 public class Question {
-  private String question;
   private long id;
+  private String question;
 
-  public Question(String question, long id) {
+  public Question(long id, String question) {
     this.question = question;
     this.id = id;
   }

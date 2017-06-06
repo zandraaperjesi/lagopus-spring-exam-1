@@ -4,10 +4,10 @@ public class QuizQuestions {
   private long id;
   private Question[] questions = new Question[5];
 
-  public QuizQuestions(long id, String[] questions) {
+  public QuizQuestions(long id, String[] questions, long[] ids) {
     this.id = id;
     for (int i = 0; i < questions.length; i++) {
-      this.questions[i] = new Question(questions[i]);
+      this.questions[i] = new Question(ids[i], questions[i]);
       System.out.println(questions[i]);
     }
   }
